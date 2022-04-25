@@ -18,7 +18,7 @@ timer.innerHTML += `${minutes}.${seconds}`
 startButton.addEventListener('click', () =>{
     timer.classList.remove('stop')
     timer.classList.add('active')
-    text.textContent = 'Get to work BOI!'
+    text.textContent = 'Get to work!'
     pomodoroTimer = setInterval(function (){
         countdownMinutes()
         countdownSeconds()
