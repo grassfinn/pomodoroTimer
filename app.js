@@ -65,17 +65,17 @@ function checkTimer() {
 }
 function restTimer() {
     if (timerComplete === true && breakTimer === false) {
-        text.textContent = 'take a break big BOI!'
+        text.textContent = 'take a break!'
         timer.classList.remove('active')
         timer.classList.add('break')
         timerComplete = true;
         console.log(timerComplete)
         breakTimer = true;
         // console.log('go on break',breakTimer)
-        const wow = new Audio('./sounds/wow.MP3');
+        const wow = new Audio('sounds/wow.mp3');
         wow.play();
-        minutes = 5;
-        seconds = 0;
+        minutes = 0;
+        seconds = 10;
         
     }
 }
@@ -88,15 +88,14 @@ function breakCountdown() {
 function reset() {
     if (timerComplete === true && breakTimer === true && minutes <= 0 && seconds <= 0)
     {
-        text.textContent = 'Get to work BOI!'
+        text.textContent = 'Get to work!'
         timer.classList.remove('break')
         timer.classList.add('active')
         breakTimer = false;
         timerComplete = false;
-        const bell = new Audio('./sounds/bell.WAV')
         minutes = 30;
         seconds = 0;
-        const work = new Audio('./sounds/meme.MP3')
+        const work = new Audio('sounds/right_back.mp3')
         work.play()
     }
 }
