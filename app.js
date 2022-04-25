@@ -1,6 +1,6 @@
 
-let minutes = 0;
-let seconds = 5;
+let minutes = 30;
+let seconds = 0;
 let timerComplete = false;
 let breakTimer = false;
 let stop = false;
@@ -74,8 +74,8 @@ function restTimer() {
         // console.log('go on break',breakTimer)
         const wow = new Audio('sounds/wow.mp3');
         wow.play();
-        minutes = 0;
-        seconds = 25;
+        minutes = 10;
+        seconds = 0;
         return minutes && seconds 
         
     }
