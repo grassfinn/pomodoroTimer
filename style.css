@@ -1,0 +1,21 @@
+body {
+    font-size: 3em;
+    text-align: center;
+    line-height: 1.6;
+}
+
+#timer {
+    font-weight: 900;
+}
+
+.active {
+    color: red;
+}
+
+.break {
+    color: green;
+}
+
+.stop {
+    color: black;
+}
