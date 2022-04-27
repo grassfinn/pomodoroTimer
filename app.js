@@ -5,6 +5,12 @@ let timerComplete = false;
 let breakTimer = false;
 let stop = false;
 
+let points = 0;
+let pointsCounter = document.getElementById('points');
+
+const timerTitle = document.getElementById('timer-title');
+const buttonPress = new Audio('./sounds/button_press.mp3');
+
 let pomodoroTimer;
 
 const startButton = document.getElementById('start');
@@ -12,26 +18,30 @@ const stopButton = document.getElementById('stop');
 const text = document.getElementById('text');
 
 let timer = document.querySelector('#timer');
-timer.innerHTML += `${minutes}.${seconds}`;
+timer.innerHTML += `${minutes}:${seconds}`;
+
+render();
+
+// button functions
 
 startButton.addEventListener('click', () => {
-    if (timerSwitch === false) {
-        start();
-        pomodoroTimer = setInterval(function () {
-            countdownMinutes();
-            countdownSeconds();
-            checkTimer();
-            restTimer();
-            reset();
-            render();
-        }, 1000);
-        return minutes && seconds;
-    }
+  if (timerSwitch === false) {
+    start();
+    pomodoroTimer = setInterval(function () {
+      countdownMinutes();
+      countdownSeconds();
+      checkTimer();
+      restTimer();
+      resetTimer();
+      render();
+    }, 1000);
+    return minutes && seconds;
+  }
 });
 
 stopButton.addEventListener('click', () => {
-  //   console.log('stop');
   stopTime();
+  timerTitle.textContent = `PAUSED - Pomodoro Timer`;
   return minutes && seconds;
 });
 
@@ -66,20 +76,20 @@ function restTimer() {
     // console.log('go on break',breakTimer)
     const wow = new Audio('sounds/wow.mp3');
     wow.play();
-    minutes = 10;
+    minutes = 5;
     seconds = 0;
     return minutes && seconds;
   }
 }
 
-function reset() {
+function resetTimer() {
+  const work = new Audio('sounds/right_back.mp3');
   if (
     timerComplete === true &&
     breakTimer === true &&
     minutes <= 0 &&
     seconds <= 0
   ) {
-    const work = new Audio('sounds/right_back.mp3');
     text.textContent = 'Get to work!';
     timer.classList.remove('break');
     timer.classList.add('active');
@@ -87,9 +97,19 @@ function reset() {
     timerComplete = false;
     minutes = 30;
     seconds = 0;
+    points++;
+    pointsCounter.textContent = `Points: ${points}`;
     work.play();
-    return minutes && seconds;
+
+    return minutes && seconds && points;
   }
+}
+
+function start() {
+  timerSwitch = true;
+  timer.classList.remove('stop');
+  timer.classList.add('active');
+  text.textContent = 'Get to work!';
 }
 
 function stopTime() {
@@ -101,18 +121,15 @@ function stopTime() {
   // minutes = 0;
   // seconds = 5;
   clearInterval(pomodoroTimer);
-  timer.innerHTML = `${minutes}.${seconds}`;
+  timer.innerHTML = `${minutes}:${seconds}`;
   return minutes && seconds;
 }
 
 function render() {
-  timer.innerHTML = `${minutes}.${seconds}`;
-}
-
-function start() {
-    timerSwitch = true;
-    timer.classList.remove('stop');
-    timer.classList.add('active');
-    text.textContent = 'Get to work!';
-  
+  // leading zero
+  if (seconds < 10) {
+    seconds = '0' + seconds;
+  }
+  timer.innerHTML = `${minutes}:${seconds}`;
+  timerTitle.textContent = `${minutes}:${seconds} - Pomodoro Timer`;
 }

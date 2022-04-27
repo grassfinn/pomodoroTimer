@@ -1,15 +1,77 @@
 body {
-    font-size: 3em;
+    font-size: 20px;
     text-align: center;
     line-height: 1.6;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+
+    max-height: 100vh;
+    /* padding-bottom: 20px; */
+}
+
+
+
+h1,span, section {
+    margin: 0;
+    padding: 0;
+}
+
+.about {
+    background-color: white;
+}
+
+.no-bullet {
+    list-style: none;
+}
+/* Nav */
+
+header {
+    background-color: green;
+    margin-bottom: 3em;
+}
+
+.nav {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 20px 0;
+    justify-content: space-evenly;
+}
+
+/* Timer Zone */
+main {
+    background-color: coral;
+    padding-bottom: 1em;
+    height: 100vh;
+}
+.timer-container {
+    position: relative;
+    margin: 0 auto;
+    height: 70vh;
+    width: 40vw;
+    border-radius: 50%;
+    background-color: tomato;
+    border-top: 23px solid green;
+    
+}
+
+.app {
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    right: 0;
+    left: 0;
+    transform: translateY(-50%);
 }
 
 #timer {
+    font-size: 3rem;
     font-weight: 900;
+    margin: 1em 0;
 }
 
 .active {
-    color: red;
+    color: greenyellow;
 }
 
 .break {
@@ -18,4 +80,34 @@ body {
 
 .stop {
     color: black;
+}
+
+button {
+    background-color: greenyellow;
+    font-weight: 900;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    border-bottom: solid green 4px;
+}
+
+button:focus {
+    padding: 7px 10px 10px 10px;
+    border: none;
+
+}
+
+#timer {
+    display: block;
+}
+
+/* about */
+.container {
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.about {
+    background-color: coral;
 }

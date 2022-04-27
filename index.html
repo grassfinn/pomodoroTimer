@@ -1,20 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="shortcut icon" href="./favicon-32x32.png" type="image/x-icon">
-    <title>Pomodoro Timer</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="shortcut icon" href="./favicon-32x32.png" type="image/x-icon" />
+    <title id="timer-title">Pomodoro Timer</title>
+  </head>
+  <body>
     <main>
-        <section id="text">Pomodoro Timer</section>
-        <section id="timer"></section>
+      <header>
+        <ul class="nav">
+          <li id="points">Points:</li>
+          <li>Shop</li>
+          <li>To-do List</li>
+        </ul>
+      </header>
+      <div class="timer-container">
+        <div class="app">
+          <h1 id="text">Pomodoro Timer</h1>
+          <span id="timer"></span>
+          <button id="start">Start Timer</button>
+          <button id="stop">Stop Timer</button>
+        </div>
+      </div>
     </main>
-    <button id="start">Start Timer</button>
-    <button id="stop">Stop Timer</button>
+    <section class="description">
+      <div class="container">
+        <h2>What is a Pomodoro Timer?</h2>
+        <p>
+          A Pomodoro Timer is a time management technique developed by Francesco
+          Cirillo. This method is to encourages one to work on a task for the
+          timer's duration and when the timer is complete, the user takes a
+          short break. Franceso Cirillo orignally used a tomato kitchen timer
+          when using this method. The word pomodoro comes from Itlian word
+          tomato
+        </p>
+      </section>
+      <section class="about">
+        <h2>Features and Soon to be</h2>
+        <h3>Features</h3>
+        <ul class="no-bullet">
+          <li>Thirty minute timer with a ten minute rest on loop</li>
+          <li>Start and Stop buttons</li>
+            <li>points storage</li>
+          </ul>
+          <h3>Soon To Be Added</h3>
+          <ul class="no-bullet">
+            <li>Some sort of system to spend points</li>
+            <li>Timer Customization</li>
+            <li>Sound Customization</li>
+          </ul>
+        </div>
+        <footer>
+          <p>Created by <span><a href="https://github.com/grassfinn/" target="_blank">Andrew Harper</a></span></p>
+        </footer>
+        </section>
     <script src="./app.js"></script>
-</body>
+  </body>
 </html>
