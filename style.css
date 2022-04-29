@@ -141,6 +141,13 @@ button:hover {
         font-weight: 900;
         margin: 1em 0;
     }
+    /* Aboust and Descp */
+    .about {
+        height: 100vh;
+    }
+    .description {
+        height: 100vh;
+    }
 
 button {
     background-color: greenyellow;
