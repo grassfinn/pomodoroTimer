@@ -1,5 +1,6 @@
 let minutes = 30;
 let seconds = 0;
+let breakMinutes = 0;
 let timerSwitch = false;
 let timerComplete = false;
 let breakTimer = false;
@@ -13,9 +14,21 @@ const buttonPress = new Audio('./sounds/button_press.mp3');
 
 let pomodoroTimer;
 
+// Buttons
 const startButton = document.getElementById('start');
 const stopButton = document.getElementById('stop');
+const settingsButton = document.getElementById('settings-open')
+const settingsConfirmButton = document.getElementById('settings-confirm')
 const text = document.getElementById('text');
+
+// modal
+settingsOverlay = document.getElementById('settings-overlay')
+settingsModal = document.getElementById('settings-modal')
+
+// inputs
+const timerMinutesInput = document.getElementById('timer-minutes')
+const breakMinutesInput = document.getElementById('break-minutes')
+
 
 let timer = document.querySelector('#timer');
 timer.innerHTML += `${minutes}:${seconds}`;
@@ -45,6 +58,22 @@ stopButton.addEventListener('click', () => {
   return minutes && seconds;
 });
 
+settingsButton.addEventListener('click', () => {
+
+  stopTime()
+  settingsOverlay.classList.toggle('hide')
+  // settingsOverlay.classList.add('show')
+})
+
+settingsConfirmButton.addEventListener('click', () => {
+  breakMinutes = breakMinutesInput.value
+  minutes = timerMinutesInput.value
+  seconds = 0
+  console.log('break', breakMinutes, 'timer', minutes)
+  settingsOverlay.classList.toggle('hide');
+  render()
+})
+
 // Timer Functions
 
 function countdownSeconds() {
@@ -67,7 +96,7 @@ function checkTimer() {
 }
 function restTimer() {
   if (timerComplete === true && breakTimer === false) {
-    text.textContent = "Take a break. You've earned it!";
+    text.textContent = "Take a break.";
     timer.classList.remove('active');
     timer.classList.add('break');
     timerComplete = true;
@@ -76,7 +105,7 @@ function restTimer() {
     // console.log('go on break',breakTimer)
     const wow = new Audio('sounds/wow.mp3');
     wow.play();
-    minutes = 5;
+    minutes = breakMinutes;
     seconds = 0;
     return minutes && seconds;
   }

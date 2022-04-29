@@ -4,16 +4,14 @@ body {
     line-height: 1.6;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-
-    max-height: 100vh;
-    /* padding-bottom: 20px; */
+    background-color: #FFA08F;
+    position: relative;
 }
 
 
 
-h1,span, section {
+h1,span, section,p {
     margin: 0;
-    padding: 0;
 }
 
 .about {
@@ -23,35 +21,87 @@ h1,span, section {
 .no-bullet {
     list-style: none;
 }
-/* Nav */
 
-header {
-    background-color: green;
-    margin-bottom: 3em;
-}
-
-.nav {
-    list-style: none;
+.flex-col {
     display: flex;
-    margin: 0;
-    padding: 20px 0;
-    justify-content: space-evenly;
+    flex-direction: column;
+    width: 500px;
+    gap:  15px;
 }
 
-/* Timer Zone */
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hide {
+    display: none;
+}
+
+#timer-minutes, #break-minutes {
+    width: 100px;
+}
+
+ .settings-modal {
+    padding: 1em;
+    height: 500px;
+    width: 40%;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    background-color: tomato;
+    position: absolute;
+    border-radius: 50px;
+    left: 0;
+    right: 0;
+    top: 6.5%;
+}
+
+#settings-open:hover {
+    color: wheat;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.pointer:hover {
+    cursor: pointer;
+}
+
+/* *************************** */
+/* *****Phone Styles********** */
+/* *************************** */
+/* checking for screen of 350 px */
+@media screen and (min-width: 350px) {
+    
+
+}
+
+/* *************************** */
+/* *****Tablet Styles********** */
+/* *************************** */
+@media screen and (min-width: 700px) {
+
+}
+
+/* *************************** */
+/* ****Desktop Styles********** */
+/* *************************** */
+@media screen and (min-width: 1100px) {
+    /* Timer Zone */
 main {
-    background-color: coral;
+    background-color: #FFA08F;
     padding-bottom: 1em;
     height: 100vh;
 }
 .timer-container {
     position: relative;
     margin: 0 auto;
-    height: 70vh;
-    width: 40vw;
+    height: 500px;
+    width: 500px;
     border-radius: 50%;
     background-color: tomato;
-    border-top: 23px solid green;
+    border-top: 23px solid #2CA873;
     
 }
 
@@ -109,5 +159,27 @@ button:focus {
 }
 
 .about {
-    background-color: coral;
+    background-color:  #FFA08F;
+}
+
+.description {
+    background-color: white;
+    padding: 1em;
+}
+/* Nav */
+
+header {
+    background-color: #71F5BD;
+    margin-bottom: 3em;
+}
+
+.nav {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 20px 0;
+    justify-content: space-evenly;
+}
+
+
 }
