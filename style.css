@@ -1,3 +1,4 @@
+
 body {
     font-size: 20px;
     text-align: center;
@@ -8,14 +9,16 @@ body {
     position: relative;
 }
 
-
-
-h1,span, section,p {
+h1,span, section,p{
     margin: 0;
 }
-
 .about {
+    background-color:  #FFA08F;
+}
+
+.description {
     background-color: white;
+    padding: 1em;
 }
 
 .no-bullet {
@@ -68,41 +71,123 @@ button:hover {
     cursor: pointer;
 }
 
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
+/* Control Switches */
+.active 
+{
+    color: greenyellow;
+}
+
+.break {
+    color: green;
+}
+
+.stop {
+    color: black;
+}
+
+
 /* *************************** */
 /* *****Phone Styles********** */
 /* *************************** */
 /* checking for screen of 350 px */
-@media screen and (min-width: 350px) {
+@media screen and (min-width: 375px) {
+    ul {
+        list-style: none;
+    }
+    /* Nav */
+    .nav {
+        text-align: left;
+        display: flex;
+        padding: 0;
+        margin: 0;
+        justify-content: space-between;
+        background-color: #71F5BD;
+
+    }
+    /* Timer */
+    main {
+        position: relative;
+        height: 95vh;
+    }
     
+    .timer-container {
+        position: absolute;
+        margin: 0 auto;
+        height: 370px;
+        width: 370px;
+        background-color: tomato;
+        border-radius: 50%;
+        border-top: 23px solid #2CA873;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0; left: 0;
+    }
+    
+    .app {
+        position: absolute;
+        text-align: center;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        left: 0;
+    }
+
+    #timer {
+        font-size: 2rem;
+        font-weight: 900;
+        margin: 1em 0;
+    }
+
+button {
+    background-color: greenyellow;
+    font-weight: 900;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    border-bottom: solid green 4px;
+}
+
+button:focus {
+    padding: 7px 10px 10px 10px;
+    border: none;
 
 }
 
-/* *************************** */
-/* *****Tablet Styles********** */
-/* *************************** */
-@media screen and (min-width: 700px) {
+#timer {
+    display: block;
+}
 
 }
+
 
 /* *************************** */
 /* ****Desktop Styles********** */
 /* *************************** */
 @media screen and (min-width: 1100px) {
     /* Timer Zone */
+
 main {
     background-color: #FFA08F;
-    padding-bottom: 1em;
-    height: 100vh;
+    position: relative;
+    height: 90vh;
 }
 .timer-container {
-    position: relative;
+    position: absolute;
     margin: 0 auto;
     height: 500px;
     width: 500px;
     border-radius: 50%;
     background-color: tomato;
     border-top: 23px solid #2CA873;
-    
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    left: 0;    
 }
 
 .app {
@@ -118,18 +203,6 @@ main {
     font-size: 3rem;
     font-weight: 900;
     margin: 1em 0;
-}
-
-.active {
-    color: greenyellow;
-}
-
-.break {
-    color: green;
-}
-
-.stop {
-    color: black;
 }
 
 button {
@@ -158,14 +231,7 @@ button:focus {
     max-width: 1000px;
 }
 
-.about {
-    background-color:  #FFA08F;
-}
 
-.description {
-    background-color: white;
-    padding: 1em;
-}
 /* Nav */
 
 header {

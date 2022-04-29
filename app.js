@@ -1,3 +1,6 @@
+// Helpfullinks
+// https://stackoverflow.com/questions/4770025/how-to-disable-scrolling-temporarily
+
 let minutes = 30;
 let seconds = 0;
 let breakMinutes = 5;
@@ -17,19 +20,18 @@ let pomodoroTimer;
 // Buttons
 const startButton = document.getElementById('start');
 const stopButton = document.getElementById('stop');
-const settingsButton = document.getElementById('settings-open')
-const settingsConfirmButton = document.getElementById('settings-confirm')
+const settingsButton = document.getElementById('settings-open');
+const settingsConfirmButton = document.getElementById('settings-confirm');
 const text = document.getElementById('text');
 
 // modal
-settingsOverlay = document.getElementById('settings-overlay')
-settingsModal = document.getElementById('settings-modal')
-settingsClose = document.getElementById('settings-close')
+settingsOverlay = document.getElementById('settings-overlay');
+settingsModal = document.getElementById('settings-modal');
+settingsClose = document.getElementById('settings-close');
 
 // inputs
-const timerMinutesInput = document.getElementById('timer-minutes')
-const breakMinutesInput = document.getElementById('break-minutes')
-
+const timerMinutesInput = document.getElementById('timer-minutes');
+const breakMinutesInput = document.getElementById('break-minutes');
 
 let timer = document.querySelector('#timer');
 timer.innerHTML += `${minutes}:${seconds}`;
@@ -60,29 +62,32 @@ stopButton.addEventListener('click', () => {
 });
 
 settingsButton.addEventListener('click', () => {
-
-  stopTime()
-  settingsOverlay.classList.toggle('hide')
-})
-
+  stopTime();
+  settingsOverlay.classList.toggle('hide');
+  document.querySelector('body').classList.toggle('stop-scrolling');
+});
 
 settingsConfirmButton.addEventListener('click', () => {
-  
-  if (timerMinutesInput.value < 1 || breakMinutesInput.value < 1){
+  if (timerMinutesInput.value < 1 || breakMinutesInput.value < 1) {
     settingsOverlay.classList.toggle('hide');
-    return minutes && breakMinutes
-  } 
-  
-  breakMinutes = breakMinutesInput.value
-  minutes = timerMinutesInput.value
-  seconds = 0
-  settingsOverlay.classList.toggle('hide');
-  render()
-})
+    document.querySelector('body').classList.toggle('stop-scrolling');
 
-settingsClose.addEventListener('click', () =>{
-  settingsOverlay.classList.toggle('hide')
-})
+    return minutes && breakMinutes;
+  }
+
+  breakMinutes = breakMinutesInput.value;
+  minutes = timerMinutesInput.value;
+  seconds = 0;
+  settingsOverlay.classList.toggle('hide');
+  document.querySelector('body').classList.toggle('stop-scrolling');
+
+  render();
+});
+
+settingsClose.addEventListener('click', () => {
+  settingsOverlay.classList.toggle('hide');
+  document.querySelector('body').classList.toggle('stop-scrolling');
+});
 
 // Timer Functions
 
@@ -106,7 +111,7 @@ function checkTimer() {
 }
 function restTimer() {
   if (timerComplete === true && breakTimer === false) {
-    text.textContent = "Take a break.";
+    text.textContent = 'Take a break.';
     timer.classList.remove('active');
     timer.classList.add('break');
     timerComplete = true;
