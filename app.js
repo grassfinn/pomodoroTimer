@@ -1,6 +1,6 @@
 let minutes = 30;
 let seconds = 0;
-let breakMinutes = 0;
+let breakMinutes = 5;
 let timerSwitch = false;
 let timerComplete = false;
 let breakTimer = false;
@@ -24,6 +24,7 @@ const text = document.getElementById('text');
 // modal
 settingsOverlay = document.getElementById('settings-overlay')
 settingsModal = document.getElementById('settings-modal')
+settingsClose = document.getElementById('settings-close')
 
 // inputs
 const timerMinutesInput = document.getElementById('timer-minutes')
@@ -62,16 +63,25 @@ settingsButton.addEventListener('click', () => {
 
   stopTime()
   settingsOverlay.classList.toggle('hide')
-  // settingsOverlay.classList.add('show')
 })
 
+
 settingsConfirmButton.addEventListener('click', () => {
+  
+  if (timerMinutesInput.value < 1 || breakMinutesInput.value < 1){
+    settingsOverlay.classList.toggle('hide');
+    return minutes && breakMinutes
+  } 
+  
   breakMinutes = breakMinutesInput.value
   minutes = timerMinutesInput.value
   seconds = 0
-  console.log('break', breakMinutes, 'timer', minutes)
   settingsOverlay.classList.toggle('hide');
   render()
+})
+
+settingsClose.addEventListener('click', () =>{
+  settingsOverlay.classList.toggle('hide')
 })
 
 // Timer Functions
