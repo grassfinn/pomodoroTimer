@@ -141,12 +141,16 @@ button:hover {
         font-weight: 900;
         margin: 1em 0;
     }
-    /* Aboust and Descp */
+    /* About and Description */
     .about {
-        height: 100vh;
+        height: 45vh;
     }
     .description {
-        height: 100vh;
+        height: 45vh;
+    }
+
+    h1 {
+        padding-top: 2em;
     }
 
 button {
@@ -179,7 +183,6 @@ button:focus {
     /* Timer Zone */
 
 main {
-    background-color: #FFA08F;
     position: relative;
     height: 90vh;
 }

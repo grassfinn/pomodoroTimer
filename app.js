@@ -72,11 +72,11 @@ settingsConfirmButton.addEventListener('click', () => {
     settingsOverlay.classList.toggle('hide');
     document.querySelector('body').classList.toggle('stop-scrolling');
 
-    return minutes && breakMinutes;
+    return Math.floor(minutes) && Math.floor(breakMinutes);
   }
 
-  breakMinutes = breakMinutesInput.value;
-  minutes = timerMinutesInput.value;
+  breakMinutes = Math.floor(breakMinutesInput.value);
+  minutes = Math.floor(timerMinutesInput.value);
   seconds = 0;
   settingsOverlay.classList.toggle('hide');
   document.querySelector('body').classList.toggle('stop-scrolling');
