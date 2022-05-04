@@ -120,7 +120,7 @@ function restTimer() {
     const wow = new Audio('sounds/wow.mp3');
     wow.play();
     minutes = breakMinutes;
-    seconds = seconds;
+    seconds = 0;
     return minutes && seconds;
   }
 }
@@ -139,7 +139,7 @@ function resetTimer() {
     breakTimer = false;
     timerComplete = false;
     minutes = minutes;
-    seconds = seconds;
+    seconds = 0;
     points++;
     pointsCounter.textContent = `Points: ${points}`;
     localStorage.setItem('points', points)
