@@ -120,7 +120,7 @@ function restTimer() {
     const wow = new Audio('sounds/wow.mp3');
     wow.play();
     minutes = breakMinutes;
-    seconds = 5;
+    seconds = seconds;
     return minutes && seconds;
   }
 }
