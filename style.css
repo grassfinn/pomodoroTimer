@@ -1,9 +1,14 @@
+/* Typography */
 
 body {
     font-size: 20px;
-    text-align: center;
     line-height: 1.6;
     font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+/* General */
+body {
     margin: 0;
     background-color: #FFA08F;
     position: relative;
@@ -11,9 +16,6 @@ body {
 
 h1,span, section{
     margin: 0;
-}
-.about {
-    background-color:  #FFA08F;
 }
 
 .description {
@@ -29,7 +31,9 @@ h1,span, section{
 .no-bullet {
     list-style: none;
 }
-
+.about {
+    background-color:  #FFA08F;
+}
 .flex-col {
     display: flex;
     flex-direction: column;
@@ -42,13 +46,7 @@ h1,span, section{
     justify-content: space-between;
 }
 
-.hide {
-    display: none;
-}
-
-#timer-minutes, #break-minutes {
-    width: 100px;
-}
+/* Settings Modal */
 
 .settings-modal {
     padding: 1em;
@@ -64,22 +62,16 @@ h1,span, section{
     top: 6.5%;
 }
 
-#settings-open:hover {
-    color: wheat;
+#timer-minutes, #break-minutes {
+    width: 100px;
 }
 
+/* Pseudo Classes */
 button:hover {
     cursor: pointer;
 }
 
-.pointer:hover {
-    cursor: pointer;
-}
 
-.stop-scrolling {
-    height: 100%;
-    overflow: hidden;
-}
 /* Control Switches */
 .active 
 {
@@ -102,12 +94,31 @@ button:hover {
     transform: translateY(-10%);
 }
 
+.hide {
+    display: none;
+}
+
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
 
 /* *************************** */
 /* *****Phone Styles********** */
 /* *************************** */
 /* checking for screen of 350 px */
 @media screen and (min-width: 350px) {
+    /* Typography */
+
+    button {
+        font-size: 1rem;
+        font-weight: 900;
+    }
+
+    #timer {
+        font-size: 2rem;
+        font-weight: 900;
+    }
     ul {
         list-style: none;
     }
@@ -119,7 +130,6 @@ button:hover {
         margin: 0;
         justify-content: space-between;
         background-color: #71F5BD;
-
     }
     /* Timer */
     main {
@@ -140,6 +150,11 @@ button:hover {
         right: 0; left: 0;
     }
     
+    #timer {
+        margin: 1em 0;
+        display: block;
+
+    }
     .app {
         position: absolute;
         text-align: center;
@@ -149,33 +164,24 @@ button:hover {
         left: 0;
     }
 
-    #timer {
-        font-size: 2rem;
-        font-weight: 900;
-        margin: 1em 0;
-        display: block;
-
-    }
     /* About and Description */
     h1 {
         padding-top: 2em;
     }
 
-button {
-    background-color: greenyellow;
-    font-weight: 900;
-    font-size: 1rem;
-    border: none;
-    border-radius: 4px;
-    padding: 10px;
-    border-bottom: solid green 4px;
-}
+    button {
+        background-color: greenyellow;
+        border: none;
+        border-radius: 4px;
+        padding: 10px;
+        border-bottom: solid green 4px;
+    }
 
-button:focus {
-    padding: 7px 10px 10px 10px;
-    border: none;
+    button:focus {
+        padding: 7px 10px 10px 10px;
+        border: none;
 
-}
+    }
 
 
 
@@ -186,79 +192,105 @@ button:focus {
 /* ****Desktop Styles********** */
 /* *************************** */
 @media screen and (min-width: 1100px) {
+    /* Typography */
+    #timer {
+        font-size: 3rem;
+        font-weight: 900;
+    }
+    button {
+        font-weight: 900;
+        font-size: 1rem;
+    }
+
+    .nav a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    .app {
+        text-align: center;
+    }
     /* Timer Zone */
 
-main {
-    position: relative;
-    height: 90vh;
-}
-.timer-container {
-    position: absolute;
-    margin: 0 auto;
-    height: 25em;
-    width: 25em;
-    border-radius: 50%;
-    background-color: tomato;
-    border-top: 1em solid #2CA873;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 0;
-    left: 0;    
-}
+    main {
+        position: relative;
+        height: 90vh;
+    }
 
-.app {
-    position: absolute;
-    top: 50%;
-    text-align: center;
-    right: 0;
-    left: 0;
-    transform: translateY(-50%);
-}
+    .timer-container {
+        position: absolute;
+        margin: 0 auto;
+        height: 25em;
+        width: 25em;
+        border-radius: 50%;
+        background-color: tomato;
+        border-top: 1em solid #2CA873;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        left: 0;    
+    }
 
-#timer {
-    font-size: 3rem;
-    font-weight: 900;
-    margin: 1em 0;
-    display: block;
-}
+    .app {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        left: 0;
+        transform: translateY(-50%);
+    }
 
-button {
-    background-color: greenyellow;
-    font-weight: 900;
-    font-size: 1rem;
-    border: none;
-    border-radius: .25em;
-    padding: 10px;
-    border-bottom: solid green .35em;
-}
+    #timer {
+        margin: 1em 0;
+        display: block;
+    }
 
-button:focus {
-    padding: 7px 10px 10px 10px;
-    border: none;
+    button {
+        background-color: greenyellow;
+        font-weight: 900;
+        font-size: 1rem;
+        border: none;
+        border-radius: .25em;
+        padding: 10px;
+        border-bottom: solid green .35em;
+    }
 
-}
+    button:focus {
+        padding: 7px 10px 10px 10px;
+        border: none;
 
-/* about */
-.container {
-    margin: 0 auto;
-    max-width: 1000px;
-}
+    }
+
+    /* about */
+    .container {
+        margin: 0 auto;
+        max-width: 1000px;
+    }
 
 
-/* Nav */
+    /* Nav */
 
-header {
-    background-color: #71F5BD;
-    margin-bottom: 3em;
-}
+    header {
+        background-color: #71F5BD;
+        margin-bottom: 3em;
+    }
 
-.nav {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: .8em 0;
-    justify-content: space-evenly;
-}
+    .nav {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: .8em 0;
+        justify-content: space-evenly;
+    }
+
+    .nav a {
+        padding-bottom: .25em;
+    }
+
+    .nav a:hover, .nav a:focus {
+        color: cadetblue;
+        border-bottom: solid 2px cadetblue;
+
+    }
 
 
 }

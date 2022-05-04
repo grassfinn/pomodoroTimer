@@ -11,6 +11,7 @@ let stop = false;
 
 let points = 0;
 let pointsCounter = document.getElementById('points');
+const localStoragePoints = localStorage.setItem('points', points)
 
 const timerTitle = document.getElementById('timer-title');
 const buttonPress = new Audio('./sounds/button_press.mp3');
@@ -115,13 +116,11 @@ function restTimer() {
     timer.classList.remove('active');
     timer.classList.add('break');
     timerComplete = true;
-    console.log(timerComplete);
     breakTimer = true;
-    // console.log('go on break',breakTimer)
     const wow = new Audio('sounds/wow.mp3');
     wow.play();
     minutes = breakMinutes;
-    seconds = 0;
+    seconds = 5;
     return minutes && seconds;
   }
 }
@@ -139,12 +138,12 @@ function resetTimer() {
     timer.classList.add('active');
     breakTimer = false;
     timerComplete = false;
-    minutes = 30;
-    seconds = 0;
+    minutes = minutes;
+    seconds = seconds;
     points++;
     pointsCounter.textContent = `Points: ${points}`;
+    localStorage.setItem('points', points)
     work.play();
-
     return minutes && seconds && points;
   }
 }
@@ -162,8 +161,6 @@ function stopTime() {
   timer.classList.remove('active');
   timer.classList.remove('break');
   timer.classList.add('stop');
-  // minutes = 0;
-  // seconds = 5;
   clearInterval(pomodoroTimer);
   timer.innerHTML = `${minutes}:${seconds}`;
   return minutes && seconds;
