@@ -138,7 +138,7 @@ function resetTimer() {
     timer.classList.add('active');
     breakTimer = false;
     timerComplete = false;
-    minutes = minutes;
+    minutes = 30;
     seconds = 0;
     points++;
     pointsCounter.textContent = `Points: ${points}`;
