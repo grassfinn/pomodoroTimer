@@ -9,7 +9,7 @@ body {
     position: relative;
 }
 
-h1,span, section,p{
+h1,span, section{
     margin: 0;
 }
 .about {
@@ -19,6 +19,11 @@ h1,span, section,p{
 .description {
     background-color: white;
     padding: 1em;
+    height: 40vh;
+}
+
+.container {
+    width: 50%;
 }
 
 .no-bullet {
@@ -102,7 +107,7 @@ button:hover {
 /* *****Phone Styles********** */
 /* *************************** */
 /* checking for screen of 350 px */
-@media screen and (min-width: 375px) {
+@media screen and (min-width: 350px) {
     ul {
         list-style: none;
     }
@@ -110,7 +115,7 @@ button:hover {
     .nav {
         text-align: left;
         display: flex;
-        padding: 0;
+        padding: .5em;
         margin: 0;
         justify-content: space-between;
         background-color: #71F5BD;
@@ -148,15 +153,10 @@ button:hover {
         font-size: 2rem;
         font-weight: 900;
         margin: 1em 0;
+        display: block;
+
     }
     /* About and Description */
-    .about {
-        height: 45vh;
-    }
-    .description {
-        height: 45vh;
-    }
-
     h1 {
         padding-top: 2em;
     }
@@ -177,9 +177,7 @@ button:focus {
 
 }
 
-#timer {
-    display: block;
-}
+
 
 }
 
@@ -221,6 +219,7 @@ main {
     font-size: 3rem;
     font-weight: 900;
     margin: 1em 0;
+    display: block;
 }
 
 button {
@@ -237,10 +236,6 @@ button:focus {
     padding: 7px 10px 10px 10px;
     border: none;
 
-}
-
-#timer {
-    display: block;
 }
 
 /* about */

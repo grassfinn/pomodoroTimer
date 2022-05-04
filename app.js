@@ -3,7 +3,7 @@
 
 let minutes = 30;
 let seconds = 0;
-let breakMinutes = 5;
+let breakMinutes = 10;
 let timerSwitch = false;
 let timerComplete = false;
 let breakTimer = false;
