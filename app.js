@@ -1,17 +1,17 @@
 // Helpfullinks
 // https://stackoverflow.com/questions/4770025/how-to-disable-scrolling-temporarily
 
-let minutes = 30;
-let seconds = 0;
-let breakMinutes = 10;
+let minutes = 0;
+let seconds = 5;
+let breakMinutes = 1;
+let inputMinutes = null;
 let timerSwitch = false;
 let timerComplete = false;
 let breakTimer = false;
-let stop = false;
+let userInput = false;
 
 let points = 0;
 let pointsCounter = document.getElementById('points');
-const localStoragePoints = localStorage.setItem('points', points)
 
 const timerTitle = document.getElementById('timer-title');
 const buttonPress = new Audio('./sounds/button_press.mp3');
@@ -77,10 +77,12 @@ settingsConfirmButton.addEventListener('click', () => {
   }
 
   breakMinutes = Math.floor(breakMinutesInput.value);
-  minutes = Math.floor(timerMinutesInput.value);
+  inputMinutes = Math.floor(timerMinutesInput.value);
+  minutes = inputMinutes;
   seconds = 0;
   settingsOverlay.classList.toggle('hide');
   document.querySelector('body').classList.toggle('stop-scrolling');
+  userInput = true;
 
   render();
 });
@@ -116,7 +118,9 @@ function restTimer() {
     timer.classList.remove('active');
     timer.classList.add('break');
     timerComplete = true;
+    console.log(timerComplete);
     breakTimer = true;
+    // console.log('go on break',breakTimer)
     const wow = new Audio('sounds/wow.mp3');
     wow.play();
     minutes = breakMinutes;
@@ -131,6 +135,23 @@ function resetTimer() {
     timerComplete === true &&
     breakTimer === true &&
     minutes <= 0 &&
+    seconds <= 0 &&
+    userInput === true
+  ) {
+    text.textContent = 'Get to work!';
+    timer.classList.remove('break');
+    timer.classList.add('active');
+    breakTimer = false;
+    timerComplete = false;
+    minutes = inputMinutes;
+    seconds = 0;
+    points++;
+    pointsCounter.textContent = `Points: ${points}`;
+    work.play();
+  } else if (
+    timerComplete === true &&
+    breakTimer === true &&
+    minutes <= 0 &&
     seconds <= 0
   ) {
     text.textContent = 'Get to work!';
@@ -142,9 +163,7 @@ function resetTimer() {
     seconds = 0;
     points++;
     pointsCounter.textContent = `Points: ${points}`;
-    localStorage.setItem('points', points)
     work.play();
-    return minutes && seconds && points;
   }
 }
 
@@ -161,6 +180,8 @@ function stopTime() {
   timer.classList.remove('active');
   timer.classList.remove('break');
   timer.classList.add('stop');
+  // minutes = 0;
+  // seconds = 5;
   clearInterval(pomodoroTimer);
   timer.innerHTML = `${minutes}:${seconds}`;
   return minutes && seconds;
