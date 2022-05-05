@@ -1,8 +1,8 @@
 // Helpfullinks
 // https://stackoverflow.com/questions/4770025/how-to-disable-scrolling-temporarily
 
-let minutes = 0;
-let seconds = 5;
+let minutes = 30;
+let seconds = 0;
 let breakMinutes = 1;
 let inputMinutes = null;
 let timerSwitch = false;
