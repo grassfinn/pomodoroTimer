@@ -20,35 +20,38 @@
       </nav>
     </header>
     <main>
-      <h1 id="text">Pomodoro Timer</h1>
-      <div class="timer-container">
-        <div class="app">
-          <span id="timer"></span>
+      <div class="container">
+        <div class="timer-container">
+          <h1 id="text">Pomodoro Timer</h1>
+          <div class="app">
+            <span id="timer"></span>
+          </div>
+          <div id="timer-buttons">
+            <button id="start">Start Timer</button>
+            <button id="stop">Stop Timer</button>
+          </div>
         </div>
       </div>
-      <div class="buttons">
-        <button id="start">Start Timer</button>
-        <button id="stop">Stop Timer</button>
-      </div>
-      <!-- Settings Modal -->
-      <aside id='settings-overlay' class="hide">
-        <div class=" settings-modal flex-col">
-          <div class="flex">
-            <p>Timer Settings</p>
-            <span id="settings-close"  class="fa-solid fa-x pointer"></span>
+        <!-- Settings Modal -->
+        <aside id='settings-overlay' class="hide">
+          <div class=" settings-modal flex-col">
+            <div class="flex">
+              <p>Timer Settings</p>
+              <span id="settings-close"  class="fa-solid fa-x pointer"></span>
+            </div>
+            <div>
+              <span>Timer (minutes)</span>
+              <input type="number" name="" id="timer-minutes" >
+            </div>
+            <div>
+              <span>Break (minutes)</span>
+              <input type="number" name="" id="break-minutes" >
+            </div>
+            <button id="settings-confirm">Confirm</button>
           </div>
-          <div>
-            <span>Timer (minutes)</span>
-            <input type="number" name="" id="timer-minutes" >
-          </div>
-          <div>
-            <span>Break (minutes)</span>
-            <input type="number" name="" id="break-minutes" >
-          </div>
-          <button id="settings-confirm">Confirm</button>
-        </div>
-      </aside>
+        </aside>
     </main>
+    <article class="about-info">
       <section class="description">
         <div class="container">
           <h2>What is a Pomodoro Timer?</h2>
@@ -80,11 +83,13 @@
             <li>Sound Customization</li>
           </ul>
         </section>
-          <footer>
+        <footer>
           <p>Created by <span><a href="https://github.com/grassfinn/" target="_blank">Andrew Harper</a></span></p>
         </footer>
       </div>
-    <script src="./app.js"></script>
-    <script src="https://kit.fontawesome.com/33fc92d562.js" crossorigin="anonymous"></script>
-  </body>
-</html>
+    </article>
+      <script src="./app.js"></script>
+      <script src="https://kit.fontawesome.com/33fc92d562.js" crossorigin="anonymous"></script>
+    </body>
+    </html>
+    

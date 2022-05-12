@@ -14,9 +14,11 @@ let points = 0;
 let pointsCounter = document.getElementById('points');
 
 const timerTitle = document.getElementById('timer-title');
+const timerButtons = document.getElementById('timer-buttons')
 const buttonPress = new Audio('./sounds/button_press.mp3');
 
 let pomodoroTimer;
+
 
 // Buttons
 const startButton = document.getElementById('start');
@@ -65,6 +67,7 @@ stopButton.addEventListener('click', () => {
 settingsButton.addEventListener('click', () => {
   stopTime();
   settingsOverlay.classList.toggle('hide');
+  timerButtons.classList.toggle('hide');
   document.querySelector('body').classList.toggle('stop-scrolling');
 });
 

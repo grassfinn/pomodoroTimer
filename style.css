@@ -1,49 +1,111 @@
 /* Typography */
-
 body {
+    margin: 0;
     font-size: 20px;
     line-height: 1.6;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
 }
 
-/* General */
-body {
+#timer {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.nav {
+    font-size: .95em;
+}
+
+h1, h2, ul, span, section{
     margin: 0;
+}
+/* Layout */
+body {
     background-color: #FFA08F;
     position: relative;
 }
 
-h1,span, section{
-    margin: 0;
+.nav {
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: #71F5BD;
+    height: 5vh;
+
+}
+
+main {
+    position: relative;
+    height: 95vh;
+}
+
+.app {
+    margin: 0 auto;
+    background-color: tomato;
+    border-top: 1em solid #2CA873;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+    max-height: 400px;
+    min-width: 350px;
+    min-height: 350px;
 }
 
 .description {
     background-color: white;
     padding: 1em;
-    height: 40vh;
 }
 
-.container {
-    width: 50%;
+.container, .timer-container {
+    margin: 0 auto;
+}
+
+.timer-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    top: 50%;
+
 }
 
 .no-bullet {
     list-style: none;
 }
+
 .about {
     background-color:  #FFA08F;
 }
+
+li {
+    list-style: none;
+}
+
 .flex-col {
     display: flex;
     flex-direction: column;
-    width: 500px;
-    gap:  15px;
 }
 
 .flex {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    background-color: greenyellow;
+    font-weight: 900;
+    font-size: 1rem;
+    border: none;
+    border-radius: .25em;
+    padding: 10px;
+    border-bottom: solid green .35em;
 }
 
 /* Settings Modal */
@@ -60,6 +122,8 @@ h1,span, section{
     left: 0;
     right: 0;
     top: 6.5%;
+    min-width: 350px;
+    max-width: 350px;
 }
 
 #timer-minutes, #break-minutes {
@@ -71,6 +135,11 @@ button:hover {
     cursor: pointer;
 }
 
+button:focus {
+    padding: 7px 10px 10px 10px;
+    border: none;
+
+}
 
 /* Control Switches */
 .active 
@@ -86,14 +155,6 @@ button:hover {
     color: black;
 }
 
-.buttons {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 85%;
-    transform: translateY(-10%);
-}
-
 .hide {
     display: none;
 }
@@ -103,194 +164,3 @@ button:hover {
     overflow: hidden;
 }
 
-/* *************************** */
-/* *****Phone Styles********** */
-/* *************************** */
-/* checking for screen of 350 px */
-@media screen and (min-width: 350px) {
-    /* Typography */
-
-    button {
-        font-size: 1rem;
-        font-weight: 900;
-    }
-
-    #timer {
-        font-size: 2rem;
-        font-weight: 900;
-    }
-    ul {
-        list-style: none;
-    }
-    /* Nav */
-    .nav {
-        text-align: left;
-        display: flex;
-        padding: .5em;
-        margin: 0;
-        justify-content: space-between;
-        background-color: #71F5BD;
-    }
-    /* Timer */
-    main {
-        position: relative;
-        height: 95vh;
-    }
-    
-    .timer-container {
-        position: absolute;
-        margin: 0 auto;
-        height: 370px;
-        width: 370px;
-        background-color: tomato;
-        border-radius: 50%;
-        border-top: 23px solid #2CA873;
-        top: 50%;
-        transform: translateY(-50%);
-        right: 0; left: 0;
-    }
-    
-    #timer {
-        margin: 1em 0;
-        display: block;
-
-    }
-    .app {
-        position: absolute;
-        text-align: center;
-        top: 50%;
-        transform: translateY(-50%);
-        right: 0;
-        left: 0;
-    }
-
-    /* About and Description */
-    h1 {
-        padding-top: 2em;
-    }
-
-    button {
-        background-color: greenyellow;
-        border: none;
-        border-radius: 4px;
-        padding: 10px;
-        border-bottom: solid green 4px;
-    }
-
-    button:focus {
-        padding: 7px 10px 10px 10px;
-        border: none;
-
-    }
-
-
-
-}
-
-
-/* *************************** */
-/* ****Desktop Styles********** */
-/* *************************** */
-@media screen and (min-width: 1100px) {
-    /* Typography */
-    #timer {
-        font-size: 3rem;
-        font-weight: 900;
-    }
-    button {
-        font-weight: 900;
-        font-size: 1rem;
-    }
-
-    .nav a {
-        text-decoration: none;
-        color: #000;
-    }
-
-    .app {
-        text-align: center;
-    }
-    /* Timer Zone */
-
-    main {
-        position: relative;
-        height: 90vh;
-    }
-
-    .timer-container {
-        position: absolute;
-        margin: 0 auto;
-        height: 25em;
-        width: 25em;
-        border-radius: 50%;
-        background-color: tomato;
-        border-top: 1em solid #2CA873;
-        top: 50%;
-        transform: translateY(-50%);
-        right: 0;
-        left: 0;    
-    }
-
-    .app {
-        position: absolute;
-        top: 50%;
-        right: 0;
-        left: 0;
-        transform: translateY(-50%);
-    }
-
-    #timer {
-        margin: 1em 0;
-        display: block;
-    }
-
-    button {
-        background-color: greenyellow;
-        font-weight: 900;
-        font-size: 1rem;
-        border: none;
-        border-radius: .25em;
-        padding: 10px;
-        border-bottom: solid green .35em;
-    }
-
-    button:focus {
-        padding: 7px 10px 10px 10px;
-        border: none;
-
-    }
-
-    /* about */
-    .container {
-        margin: 0 auto;
-        max-width: 1000px;
-    }
-
-
-    /* Nav */
-
-    header {
-        background-color: #71F5BD;
-        margin-bottom: 3em;
-    }
-
-    .nav {
-        list-style: none;
-        display: flex;
-        margin: 0;
-        padding: .8em 0;
-        justify-content: space-evenly;
-    }
-
-    .nav a {
-        padding-bottom: .25em;
-    }
-
-    .nav a:hover, .nav a:focus {
-        color: cadetblue;
-        border-bottom: solid 2px cadetblue;
-
-    }
-
-
-}
