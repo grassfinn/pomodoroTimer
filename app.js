@@ -3,7 +3,7 @@
 
 let minutes = 30;
 let seconds = 0;
-let breakMinutes = 1;
+let breakMinutes = 10;
 let inputMinutes = null;
 let timerSwitch = false;
 let timerComplete = false;
@@ -41,8 +41,7 @@ timer.innerHTML += `${minutes}:${seconds}`;
 
 render();
 
-// button functions
-
+// Set interval
 startButton.addEventListener('click', () => {
   if (timerSwitch === false) {
     start();
@@ -58,12 +57,16 @@ startButton.addEventListener('click', () => {
   }
 });
 
+// button functions
+
+// Stop
 stopButton.addEventListener('click', () => {
   stopTime();
   timerTitle.textContent = `PAUSED - Pomodoro Timer`;
   return minutes && seconds;
 });
 
+// settings
 settingsButton.addEventListener('click', () => {
   stopTime();
   settingsOverlay.classList.toggle('hide');
@@ -71,13 +74,15 @@ settingsButton.addEventListener('click', () => {
   document.querySelector('body').classList.toggle('stop-scrolling');
 });
 
+// setting Confirm
 settingsConfirmButton.addEventListener('click', () => {
   if (timerMinutesInput.value < 1 || breakMinutesInput.value < 1) {
     settingsOverlay.classList.toggle('hide');
+    timerButtons.classList.toggle('hide');
     document.querySelector('body').classList.toggle('stop-scrolling');
-
     return Math.floor(minutes) && Math.floor(breakMinutes);
   }
+  timerButtons.classList.toggle('hide');
 
   breakMinutes = Math.floor(breakMinutesInput.value);
   inputMinutes = Math.floor(timerMinutesInput.value);
@@ -93,6 +98,8 @@ settingsConfirmButton.addEventListener('click', () => {
 settingsClose.addEventListener('click', () => {
   settingsOverlay.classList.toggle('hide');
   document.querySelector('body').classList.toggle('stop-scrolling');
+  timerButtons.classList.toggle('hide');
+
 });
 
 // Timer Functions

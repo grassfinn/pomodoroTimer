@@ -59,6 +59,10 @@ main {
     padding: 1em;
 }
 
+.container {
+    width: 60%;
+}
+
 .container, .timer-container {
     margin: 0 auto;
 }
